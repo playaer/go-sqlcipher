@@ -13,10 +13,16 @@ package sqlite3
 
 /*
 #cgo CFLAGS: -std=gnu99
+#cgo CFLAGS: -I./include
 #cgo CFLAGS: -DSQLITE_HAS_CODEC
 #cgo CFLAGS: -DSQLITE_ENABLE_RTREE -DSQLITE_THREADSAFE
 #cgo CFLAGS: -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4_UNICODE61
-#cgo LDFLAGS: -lcrypto
+
+#cgo linux,amd64 LDFLAGS: ${SRCDIR}/libs/libcrypto.linux_amd64.a
+#cgo windows,386 LDFLAGS: ${SRCDIR}/libs/libcrypto.windows_386.a
+#cgo windows,amd64 LDFLAGS: ${SRCDIR}/libs/libcrypto.windows_amd64.a
+#cgo windows LDFLAGS: -lws2_32
+
 #ifndef USE_LIBSQLITE3
 #include <sqlite3-binding.h>
 #else
