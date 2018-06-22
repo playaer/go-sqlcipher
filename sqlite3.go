@@ -18,6 +18,7 @@ package sqlite3
 #cgo CFLAGS: -DSQLITE_ENABLE_RTREE -DSQLITE_THREADSAFE
 #cgo CFLAGS: -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4_UNICODE61
 
+#cgo linux,386 LDFLAGS: ${SRCDIR}/libs/libcrypto.linux_386.a
 #cgo linux,amd64 LDFLAGS: ${SRCDIR}/libs/libcrypto.linux_amd64.a
 #cgo linux,arm LDFLAGS: ${SRCDIR}/libs/libcrypto.linux_arm.a
 #cgo windows,386 LDFLAGS: ${SRCDIR}/libs/libcrypto.windows_386.a
